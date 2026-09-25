@@ -1,0 +1,1926 @@
+/* ========================================
+   ANIMEARCHIVE — DESIGN SYSTEM
+   A personal screening log, styled like a
+   film-club card catalog: warm ink, brass
+   accents, hairline rules, punch-mark cards.
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+
+    /* -- color -- */
+    --ink:        #15120f;
+    --ink-raised: #1d1812;
+    --panel:      #211b14;
+    --line:       #3a3021;
+    --line-soft:  #2a2318;
+    --paper:      #f3ead9;
+    --paper-dim:  #cdbfa8;
+    --body-text:  #b9ab97;
+    --muted:      #8c7f6c;
+    --brass:      #d9a441;
+    --brass-dim:  #a97f34;
+    --stamp-red:  #b5443a;
+    --stamp-moss: #6f8f66;
+
+    /* -- type -- */
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-ui: 'Inter', Arial, Helvetica, sans-serif;
+
+    /* -- shape -- */
+    --radius-sm: 3px;
+    --radius-md: 5px;
+}
+
+
+/* ========================================
+   GLOBAL
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-ui);
+    background: var(--ink);
+    color: var(--body-text);
+    line-height: 1.6;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--paper);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+
+/* ========================================
+   NAVIGATION BAR
+   ======================================== */
+
+header {
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    width: 100%;
+    height: 72px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--ink);
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.logo,
+.nav-logo a {
+    color: var(--paper);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    position: relative;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    padding-bottom: 4px;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--paper);
+}
+
+.nav-links a.active {
+    color: var(--paper);
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    width: 100%;
+    height: 2px;
+    background: var(--brass);
+}
+
+
+/* ========================================
+   SHARED — SECTION LABELS
+   ======================================== */
+
+.section-label,
+.stats-header p,
+.section-header p,
+.library-header .section-label,
+.watchlist-label,
+.profile-section-header p,
+.profile-modal-header p {
+    color: var(--brass);
+    font-size: 13px;
+    font-weight: 600;
+    font-style: italic;
+    font-family: var(--font-display);
+    margin-bottom: 6px;
+}
+
+.stats-header h2,
+.section-header h2,
+.profile-section-header h2,
+.profile-modal-header h2 {
+    font-size: 26px;
+    margin-top: 0;
+}
+
+
+/* ========================================
+   HOME — HERO
+   ======================================== */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 620px;
+    overflow: hidden;
+    background: var(--ink);
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(21, 18, 15, 0.97) 0%,
+            rgba(21, 18, 15, 0.82) 32%,
+            rgba(21, 18, 15, 0.25) 72%,
+            rgba(21, 18, 15, 0.55) 100%
+        );
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.92);
+}
+
+.hero-content {
+    position: absolute;
+    z-index: 2;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 560px;
+}
+
+.hero-label {
+    color: var(--brass);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    line-height: 1.05;
+    margin-bottom: 18px;
+}
+
+.hero-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.hero-info span {
+    font-size: 12px;
+    color: var(--paper-dim);
+    background: rgba(217, 164, 65, 0.08);
+    border: 1px solid var(--line);
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+}
+
+.hero-date {
+    position: relative;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 16px;
+    padding-top: 12px;
+}
+
+.hero-date::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 1px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--line) 0,
+        var(--line) 4px,
+        transparent 4px,
+        transparent 8px
+    );
+}
+
+.hero-description {
+    color: var(--body-text);
+    font-size: 15px;
+    margin-bottom: 26px;
+    max-width: 46ch;
+}
+
+.hero-button {
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--brass);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hero-button:hover {
+    background: var(--brass);
+    color: var(--ink);
+}
+
+.hero-arrow {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: rgba(21, 18, 15, 0.6);
+    color: var(--paper);
+    font-size: 18px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.hero-arrow:hover {
+    border-color: var(--brass);
+}
+
+.hero-arrow-left {
+    left: 3%;
+}
+
+.hero-arrow-right {
+    right: 3%;
+}
+
+.hero-dots {
+    position: absolute;
+    z-index: 5;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: var(--line);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dot.active {
+    background: var(--brass);
+    transform: scale(1.3);
+}
+
+
+/* ========================================
+   HOME — STATS
+   ======================================== */
+
+.anime-stats {
+    padding: 64px 8%;
+    background: var(--ink-raised);
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.stats-header {
+    margin-bottom: 28px;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.stat-card {
+    padding: 22px;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    border-top: 2px solid var(--brass);
+}
+
+.stat-card h3 {
+    font-size: 32px;
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+
+/* ========================================
+   HOME — RECENTLY ADDED
+   ======================================== */
+
+.recently-added {
+    padding: 64px 8% 80px;
+}
+
+.section-header {
+    margin-bottom: 28px;
+}
+
+.anime-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.anime-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.anime-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--brass-dim);
+}
+
+.anime-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.anime-card-content {
+    padding: 16px 18px;
+}
+
+.anime-card-content h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.anime-card-content p {
+    color: var(--paper-dim);
+    font-size: 13px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.anime-card-content span {
+    color: var(--brass);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+
+/* ========================================
+   MY ANIME — HEADER
+   ======================================== */
+
+.library-page {
+    min-height: calc(100vh - 72px);
+    padding-bottom: 80px;
+}
+
+.library-header {
+    padding: 64px 8% 30px;
+}
+
+.library-header h1 {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.library-header > div > p:not(.section-label) {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+
+/* ========================================
+   SEARCH & SORT
+   ======================================== */
+
+.library-controls,
+.watchlist-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 8% 25px;
+}
+
+.search-container,
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    max-width: 460px;
+    padding: 0 15px;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+}
+
+.search-box span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.search-container input,
+.search-box input,
+#anime-search,
+#watchlist-search {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--paper);
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+.search-container:focus-within,
+.search-box:focus-within {
+    border-color: var(--brass-dim);
+}
+
+#anime-search::placeholder,
+#watchlist-search::placeholder {
+    color: var(--muted);
+}
+
+.sort-container {
+    position: relative;
+}
+
+.sort-button {
+    padding: 12px 18px;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    color: var(--paper);
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.sort-button:hover {
+    border-color: var(--brass-dim);
+}
+
+.sort-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 180px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 6px;
+    display: none;
+    z-index: 100;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.sort-menu.show {
+    display: block;
+}
+
+.sort-menu button {
+    width: 100%;
+    padding: 10px 12px;
+    background: none;
+    border: none;
+    color: var(--body-text);
+    text-align: left;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.sort-menu button:hover {
+    background: var(--ink-raised);
+    color: var(--paper);
+}
+
+
+/* ========================================
+   FILTERS
+   ======================================== */
+
+.library-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 8% 32px;
+}
+
+.library-filter {
+    padding: 9px 16px;
+    background: transparent;
+    border: 1px solid var(--line-soft);
+    border-radius: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.library-filter:hover {
+    color: var(--paper);
+    border-color: var(--line);
+}
+
+.library-filter.active {
+    background: var(--brass);
+    border-color: var(--brass);
+    color: var(--ink);
+    font-weight: 600;
+}
+
+
+/* ========================================
+   COLLECTION
+   ======================================== */
+
+.collection-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0 8%;
+    margin-bottom: 20px;
+}
+
+.collection-heading h2 {
+    font-size: 24px;
+}
+
+.collection-heading p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.collection-heading span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.anime-grid,
+.watchlist-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 8%;
+}
+
+
+/* ========================================
+   ANIME / WATCHLIST CARDS
+   (library-card is shared: static in
+   anime.html, generated by JS in watchlist)
+   ======================================== */
+
+.library-card {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    overflow: hidden;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.library-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--brass-dim);
+}
+
+/* punch-mark: the one signature flourish */
+.library-card::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    z-index: 3;
+}
+
+.poster-container {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    position: relative;
+}
+
+.poster-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.94);
+}
+
+.poster-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 18px;
+    background: linear-gradient(
+        transparent 45%,
+        rgba(15, 12, 9, 0.96)
+    );
+    /* always visible — a hover-only reveal is invisible/unusable on touch devices */
+    opacity: 1;
+}
+
+.card-status {
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--brass);
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+}
+
+.details-button {
+    width: 100%;
+    padding: 10px;
+    background: var(--paper);
+    color: var(--ink);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.details-button:hover {
+    background: var(--brass);
+}
+
+.library-card-info {
+    padding: 16px;
+}
+
+.library-card-info h2 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 9px;
+}
+
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 7px;
+}
+
+.card-meta span {
+    color: var(--paper-dim);
+    font-size: 12px;
+}
+
+.library-card-info > p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* ========================================
+   WATCHLIST TOGGLE / REMOVE BUTTONS
+   ======================================== */
+
+.watchlist-toggle-button {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.watchlist-toggle-button:hover {
+    color: var(--brass);
+    border-color: var(--brass);
+}
+
+.watchlist-toggle-button.added {
+    color: var(--brass);
+    border-color: var(--brass);
+    cursor: default;
+}
+
+.watchlist-remove-button {
+    width: 100%;
+    padding: 9px;
+    background: transparent;
+    color: var(--paper-dim);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.watchlist-remove-button:hover {
+    border-color: var(--stamp-red);
+    color: var(--stamp-red);
+}
+
+
+/* ========================================
+   ANIME DETAILS MODAL
+   ======================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(10, 8, 6, 0.82);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 34px;
+    background: var(--ink-raised);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--brass);
+    padding: 34px;
+}
+
+.modal-close,
+.character-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--paper);
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 5;
+    transition: border-color 0.2s ease;
+}
+
+.modal-close:hover,
+.character-modal-close:hover {
+    border-color: var(--brass);
+}
+
+.modal-poster-container img,
+#modal-poster {
+    width: 100%;
+    border: 1px solid var(--line-soft);
+}
+
+.modal-label {
+    color: var(--brass);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+#modal-title {
+    font-size: 32px;
+    line-height: 1.15;
+    margin: 8px 0 16px;
+}
+
+.modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.modal-meta span {
+    color: var(--paper-dim);
+    font-size: 12px;
+    padding: 5px 9px;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+}
+
+#modal-date {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+#modal-synopsis {
+    color: var(--body-text);
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 26px;
+    max-width: 62ch;
+}
+
+
+/* ========================================
+   THOUGHTS
+   ======================================== */
+
+.thoughts-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.thoughts-section {
+    margin-bottom: 26px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-soft);
+}
+
+.thoughts-section h3,
+.characters-section h3 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+#modal-thoughts {
+    color: var(--body-text);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.edit-thoughts {
+    padding: 7px 12px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    color: var(--muted);
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.edit-thoughts:hover {
+    color: var(--brass);
+    border-color: var(--brass);
+}
+
+.thoughts-input,
+#character-thoughts-input {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    background: var(--panel);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius-sm);
+    outline: none;
+    resize: vertical;
+    color: var(--paper);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* only the anime-modal textarea is shown/hidden by script.js —
+   the character-modal textarea is always visible inside its popup */
+.thoughts-input {
+    display: none;
+}
+
+.thoughts-input:focus,
+#character-thoughts-input:focus {
+    border-color: var(--brass-dim);
+}
+
+.thoughts-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    display: none;
+}
+
+#save-thoughts,
+#cancel-thoughts,
+#save-character-thoughts,
+#cancel-character-thoughts {
+    padding: 9px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#save-thoughts,
+#save-character-thoughts {
+    background: var(--brass);
+    border: 1px solid var(--brass);
+    color: var(--ink);
+}
+
+#save-thoughts:hover,
+#save-character-thoughts:hover {
+    background: var(--brass-dim);
+}
+
+#cancel-thoughts,
+#cancel-character-thoughts {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+}
+
+
+/* ========================================
+   FAVORITE CHARACTERS
+   ======================================== */
+
+.characters-section {
+    padding-top: 6px;
+}
+
+.favorite-characters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.favorite-character {
+    position: relative;
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    transition: border-color 0.25s ease;
+}
+
+.favorite-character:hover {
+    border-color: var(--brass-dim);
+}
+
+.favorite-character img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: var(--paper);
+}
+
+.character-info {
+    padding: 12px;
+    position: relative;
+}
+
+.character-info h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.character-info p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+    padding-right: 24px;
+}
+
+.edit-character-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(21, 18, 15, 0.85);
+    border: 1px solid var(--brass-dim);
+    border-radius: 50%;
+    color: var(--paper);
+    font-size: 13px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 4;
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.edit-character-button:hover {
+    background: var(--brass);
+    color: var(--ink);
+    border-color: var(--brass);
+    transform: scale(1.08);
+}
+
+.edit-character-button:active {
+    transform: scale(0.95);
+}
+
+.no-characters {
+    color: var(--muted);
+    font-size: 13px;
+    padding: 20px 0;
+}
+
+
+/* ========================================
+   CHARACTER THOUGHTS MODAL
+   ======================================== */
+
+.character-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--ink-raised);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--brass);
+    padding: 30px;
+}
+
+#character-edit-image {
+    display: block;
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto 16px;
+    background: var(--paper);
+    border-radius: 50%;
+    border: 3px solid var(--panel);
+}
+
+#character-edit-name {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.character-thoughts-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+
+/* ========================================
+   WATCHLIST — HEADER
+   ======================================== */
+
+.watchlist-page {
+    min-height: calc(100vh - 72px);
+    padding-bottom: 80px;
+}
+
+.watchlist-header {
+    padding: 64px 8% 30px;
+}
+
+.watchlist-header h1 {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.watchlist-subtitle {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+
+/* ========================================
+   WATCHLIST — EMPTY STATE
+   ======================================== */
+
+.watchlist-empty {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 320px;
+    margin: 0 8%;
+    padding: 50px 20px;
+    background: var(--panel);
+    border: 1px dashed var(--line);
+}
+
+.watchlist-empty.show {
+    display: flex;
+}
+
+.empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 18px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--brass);
+    font-size: 26px;
+}
+
+.watchlist-empty h2 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.watchlist-empty p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.empty-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--brass);
+    color: var(--ink);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+.empty-button:hover {
+    background: var(--brass-dim);
+}
+
+
+/* ========================================
+   PROFILE PAGE
+   ======================================== */
+
+.profile-page {
+    min-height: 100vh;
+    background: var(--ink);
+    padding-bottom: 80px;
+}
+
+.profile-header {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    background: var(--ink-raised);
+    border-left: 1px solid var(--line-soft);
+    border-right: 1px solid var(--line-soft);
+}
+
+.profile-cover {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: var(--panel);
+    position: relative;
+}
+
+.profile-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(21,18,15,0.1), rgba(21,18,15,0.65));
+}
+
+.profile-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    position: relative;
+    padding: 0 34px;
+}
+
+.profile-picture-container {
+    position: absolute;
+    top: -68px;
+    left: 34px;
+    width: 138px;
+    height: 138px;
+    border-radius: 50%;
+    padding: 5px;
+    background: var(--ink-raised);
+    border: 1px solid var(--line);
+}
+
+.profile-picture-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 18px;
+}
+
+.edit-profile-button {
+    padding: 10px 22px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.edit-profile-button:hover {
+    color: var(--brass);
+    border-color: var(--brass);
+}
+
+.profile-details {
+    padding-top: 42px;
+    padding-bottom: 22px;
+}
+
+.profile-details h1 {
+    font-size: 27px;
+}
+
+.profile-username {
+    margin: 6px 0 16px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.profile-bio {
+    max-width: 620px;
+    margin: 0 0 14px;
+    color: var(--body-text);
+    line-height: 1.65;
+}
+
+.profile-joined {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.profile-tabs {
+    display: flex;
+    gap: 4px;
+    border-top: 1px solid var(--line-soft);
+    overflow-x: auto;
+}
+
+.profile-tab {
+    position: relative;
+    padding: 17px 22px;
+    background: transparent;
+    color: var(--muted);
+    border: none;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.profile-tab:hover {
+    color: var(--paper);
+}
+
+.profile-tab.active {
+    color: var(--paper);
+}
+
+.profile-tab.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 22px;
+    right: 22px;
+    height: 2px;
+    background: var(--brass);
+}
+
+.profile-content {
+    width: 100%;
+    max-width: 1080px;
+    margin: 24px auto 0;
+    padding: 0 34px;
+}
+
+.profile-section {
+    margin-bottom: 24px;
+    padding: 24px;
+    background: var(--ink-raised);
+    border: 1px solid var(--line-soft);
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.profile-stat-card {
+    padding: 22px 14px;
+    text-align: center;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    border-top: 2px solid var(--brass);
+}
+
+.profile-stat-card h3 {
+    margin: 0 0 6px;
+    font-size: 28px;
+}
+
+.profile-stat-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.genre-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.genre-list span {
+    padding: 8px 15px;
+    background: var(--panel);
+    color: var(--paper-dim);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    font-size: 13px;
+    transition: 0.2s ease;
+}
+
+.genre-list span:hover {
+    color: var(--brass);
+    border-color: var(--brass-dim);
+}
+
+.profile-anime-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.profile-anime-card {
+    display: flex;
+    gap: 14px;
+    padding: 12px;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    transition: border-color 0.2s ease;
+}
+
+.profile-anime-card:hover {
+    border-color: var(--brass-dim);
+}
+
+.profile-anime-card img {
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.profile-anime-card div {
+    padding-top: 6px;
+}
+
+.profile-anime-card h3 {
+    margin: 0 0 9px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.profile-anime-card p {
+    margin: 0;
+    color: var(--brass);
+    font-size: 13px;
+}
+
+.profile-watchlist-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+}
+
+.profile-watchlist-summary h3 {
+    margin: 0 0 5px;
+    font-size: 26px;
+}
+
+.profile-watchlist-summary p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.profile-view-button {
+    padding: 10px 18px;
+    background: var(--brass);
+    color: var(--ink);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    transition: background 0.2s ease;
+}
+
+.profile-view-button:hover {
+    background: var(--brass-dim);
+}
+
+
+/* ========================================
+   EDIT PROFILE MODAL
+   ======================================== */
+
+.profile-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(10, 8, 6, 0.82);
+}
+
+.profile-modal.active {
+    display: flex;
+}
+
+.profile-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px;
+    background: var(--ink-raised);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--brass);
+}
+
+.profile-modal-header {
+    margin-bottom: 24px;
+}
+
+.profile-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    color: var(--muted);
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.profile-modal-close:hover {
+    color: var(--paper);
+}
+
+.profile-edit-section {
+    margin-bottom: 22px;
+}
+
+.profile-edit-section h3 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--paper-dim);
+}
+
+.profile-edit-cover {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+}
+
+.profile-edit-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-edit-picture {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.profile-edit-picture img {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--panel);
+}
+
+.change-image-button {
+    display: inline-block;
+    padding: 9px 16px;
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.change-image-button:hover {
+    color: var(--brass);
+    border-color: var(--brass);
+}
+
+#cover-upload,
+#profile-upload {
+    display: none;
+}
+
+.profile-input-group {
+    margin-bottom: 18px;
+}
+
+.profile-input-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--paper-dim);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.profile-input-group input,
+.profile-input-group textarea {
+    width: 100%;
+    padding: 11px 13px;
+    background: var(--panel);
+    color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    outline: none;
+    font-size: 14px;
+}
+
+.profile-input-group input:focus,
+.profile-input-group textarea:focus {
+    border-color: var(--brass-dim);
+}
+
+.profile-input-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.profile-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 6px;
+}
+
+.cancel-profile-button,
+.save-profile-button {
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.cancel-profile-button {
+    background: transparent;
+    color: var(--paper-dim);
+    border: 1px solid var(--line);
+}
+
+.cancel-profile-button:hover {
+    border-color: var(--muted);
+}
+
+.save-profile-button {
+    background: var(--brass);
+    color: var(--ink);
+    border: 1px solid var(--brass);
+}
+
+.save-profile-button:hover {
+    background: var(--brass-dim);
+}
+
+
+/* ========================================
+   PROFILE — MESSAGE ME
+   ======================================== */
+
+.message-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.message-form button {
+    padding: 11px 20px;
+    background: var(--brass);
+    color: var(--ink);
+    border: 1px solid var(--brass);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.message-form button:hover {
+    background: var(--brass-dim);
+}
+
+.error-message {
+    display: block;
+    margin-top: 6px;
+    color: var(--stamp-red);
+    font-size: 12px;
+}
+
+#successMessage {
+    margin-top: 12px;
+    color: var(--stamp-moss);
+    font-size: 13px;
+}
+
+
+/* ========================================
+   RESPONSIVE — 1000px
+   ======================================== */
+
+@media (max-width: 1000px) {
+
+    .anime-grid,
+    .watchlist-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* ========================================
+   RESPONSIVE — 750px
+   ======================================== */
+
+@media (max-width: 750px) {
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .anime-grid,
+    .watchlist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+    }
+
+}
+
+
+/* ========================================
+   RESPONSIVE — 600px
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: auto;
+        min-height: 72px;
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content {
+        max-width: 90%;
+    }
+
+    .anime-card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .library-controls,
+    .watchlist-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-container,
+    .search-box {
+        max-width: none;
+    }
+
+    .sort-container {
+        align-self: flex-start;
+    }
+
+    .modal-content {
+        grid-template-columns: 1fr;
+    }
+
+    #modal-poster,
+    .modal-poster-container img {
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
+    .favorite-characters {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-anime-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ========================================
+   RESPONSIVE — 500px
+   ======================================== */
+
+@media (max-width: 500px) {
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .stats-container,
+    .profile-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .anime-grid,
+    .watchlist-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

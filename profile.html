@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile - AnimeArchive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         NAVIGATION BAR
+         ======================================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                AnimeArchive
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="anime.html">
+                    My Anime
+                </a>
+
+                <a href="watchlist.html">
+                    Watchlist
+                </a>
+
+                <a href="profile.html" class="active">
+                    Profile
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ========================================
+         PROFILE PAGE
+         ======================================== -->
+
+    <main class="profile-page">
+
+
+        <!-- ========================================
+             PROFILE COVER
+             ======================================== -->
+
+        <section class="profile-header">
+
+
+            <!-- Cover Photo -->
+
+            <div class="profile-cover">
+
+                <img
+                    id="profile-cover-image"
+                    src="./images/coverphoto.png"
+                    alt="Profile cover"
+                >
+
+            </div>
+
+
+
+            <!-- Profile Information -->
+
+            <div class="profile-info">
+
+
+                <!-- Profile Picture -->
+
+                <div class="profile-picture-container">
+
+                    <img
+                        id="profile-picture"
+                        src="./images/profilepicture.png"
+                        alt="Profile picture"
+                    >
+
+                </div>
+
+
+
+                <!-- Profile Actions -->
+
+                <div class="profile-actions">
+
+                    <button
+                        class="edit-profile-button"
+                        id="edit-profile-button"
+                    >
+                        Edit Profile
+                    </button>
+
+                </div>
+
+
+
+                <!-- User Details -->
+
+                <div class="profile-details">
+
+                    <h1 id="profile-name">
+                        AnimeArchive User
+                    </h1>
+
+                    <p
+                        class="profile-username"
+                        id="profile-username"
+                    >
+                        @animearchive
+                    </p>
+
+                    <p
+                        class="profile-bio"
+                        id="profile-bio"
+                    >
+                        Just someone who loves anime, good stories,
+                        and keeping track of every anime I've watched.
+                    </p>
+
+                    <p class="profile-joined">
+                        📅 Joined AnimeArchive
+                    </p>
+
+                </div>
+
+
+
+                <!-- Profile Navigation -->
+
+                <div class="profile-tabs">
+
+                    <button class="profile-tab active" data-tab-target="">
+                        Overview
+                    </button>
+
+                    <button class="profile-tab" data-tab-target="anime.html">
+                        My Anime
+                    </button>
+
+                    <button class="profile-tab" data-tab-target="profile-favorites-section">
+                        Favorites
+                    </button>
+
+                    <button class="profile-tab" data-tab-target="watchlist.html">
+                        Watchlist
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             PROFILE CONTENT
+             ======================================== -->
+
+        <section class="profile-content">
+
+
+            <!-- ========================================
+                 ANIME STATISTICS
+                 ======================================== -->
+
+            <div class="profile-section">
+
+                <div class="profile-section-header">
+
+                    <p>
+                        Your anime journey
+                    </p>
+
+                    <h2>
+                        My Stats
+                    </h2>
+
+                </div>
+
+
+                <div class="profile-stats">
+
+
+                    <div class="profile-stat-card">
+
+                        <h3 id="profile-anime-count">
+                            2
+                        </h3>
+
+                        <p>
+                            Anime Watched
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="profile-stat-card">
+
+                        <h3 id="profile-episode-count">
+                            53
+                        </h3>
+
+                        <p>
+                            Episodes Watched
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="profile-stat-card">
+
+                        <h3 id="profile-average-rating">
+                            9.9
+                        </h3>
+
+                        <p>
+                            Average Rating
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="profile-stat-card">
+
+                        <h3 id="profile-completed-count">
+                            2
+                        </h3>
+
+                        <p>
+                            Completed
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 FAVORITE GENRES
+                 ======================================== -->
+
+            <div class="profile-section">
+
+                <div class="profile-section-header">
+
+                    <p>
+                        Your taste
+                    </p>
+
+                    <h2>
+                        Favorite Genres
+                    </h2>
+
+                </div>
+
+
+                <div class="genre-list">
+
+                    <span>
+                        Action
+                    </span>
+
+                    <span>
+                        Adventure
+                    </span>
+
+                    <span>
+                        Fantasy
+                    </span>
+
+                    <span>
+                        Drama
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 FAVORITE ANIME
+                 ======================================== -->
+
+            <div class="profile-section" id="profile-favorites-section">
+
+                <div class="profile-section-header">
+
+                    <p>
+                        Your favorites
+                    </p>
+
+                    <h2>
+                        Favorite Anime
+                    </h2>
+
+                </div>
+
+
+                <div class="profile-anime-grid">
+
+
+                    <article class="profile-anime-card">
+
+                        <img
+                            src="./images/frieren-poster.png"
+                            alt="Frieren: Beyond Journey's End"
+                        >
+
+                        <div>
+
+                            <h3>
+                                Frieren: Beyond Journey's End
+                            </h3>
+
+                            <p>
+                                ⭐ 9.8 / 10
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="profile-anime-card">
+
+                        <img
+                            src="./images/sololeveling-poster.png"
+                            alt="Solo Leveling"
+                        >
+
+                        <div>
+
+                            <h3>
+                                Solo Leveling
+                            </h3>
+
+                            <p>
+                                ⭐ 10 / 10
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 WATCHLIST SUMMARY
+                 ======================================== -->
+
+            <div class="profile-section">
+
+                <div class="profile-section-header">
+
+                    <p>
+                        Next up
+                    </p>
+
+                    <h2>
+                        Watchlist
+                    </h2>
+
+                </div>
+
+
+                <div class="profile-watchlist-summary">
+
+                    <div>
+
+                        <h3 id="profile-watchlist-count">
+                            2
+                        </h3>
+
+                        <p>
+                            Anime waiting to be watched
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="watchlist.html"
+                        class="profile-view-button"
+                    >
+                        View Watchlist
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 MESSAGE ME
+                 ======================================== -->
+
+            <div class="profile-section">
+
+                <div class="profile-section-header">
+
+                    <p>
+                        Get in touch
+                    </p>
+
+                    <h2>
+                        Message Me
+                    </h2>
+
+                </div>
+
+
+                <form
+                    id="contactForm"
+                    class="message-form"
+                >
+
+
+                    <!-- Name -->
+
+                    <div class="profile-input-group">
+
+                        <label for="message-name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="message-name"
+                            name="name"
+                            placeholder="Enter your name"
+                        >
+
+                        <span
+                            class="error-message"
+                            id="nameError"
+                        ></span>
+
+                    </div>
+
+
+
+                    <!-- Email -->
+
+                    <div class="profile-input-group">
+
+                        <label for="message-email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="message-email"
+                            name="email"
+                            placeholder="Enter your email"
+                        >
+
+                        <span
+                            class="error-message"
+                            id="emailError"
+                        ></span>
+
+                    </div>
+
+
+
+                    <!-- Subject -->
+
+                    <div class="profile-input-group">
+
+                        <label for="message-subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="message-subject"
+                            name="subject"
+                            placeholder="Enter the subject"
+                        >
+
+                        <span
+                            class="error-message"
+                            id="subjectError"
+                        ></span>
+
+                    </div>
+
+
+
+                    <!-- Message -->
+
+                    <div class="profile-input-group">
+
+                        <label for="message-text">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message-text"
+                            name="message"
+                            rows="6"
+                            placeholder="Write your message"
+                        ></textarea>
+
+                        <span
+                            class="error-message"
+                            id="messageError"
+                        ></span>
+
+                    </div>
+
+
+
+                    <button type="submit">
+                        Send Message
+                    </button>
+
+
+                    <p id="successMessage"></p>
+
+
+                </form>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         EDIT PROFILE MODAL
+         ======================================== -->
+
+    <div
+        class="profile-modal"
+        id="profile-modal"
+    >
+
+
+        <div class="profile-modal-content">
+
+
+            <button
+                class="profile-modal-close"
+                id="profile-modal-close"
+                aria-label="Close edit profile"
+            >
+                ×
+            </button>
+
+
+
+            <div class="profile-modal-header">
+
+                <p>
+                    Profile settings
+                </p>
+
+                <h2>
+                    Edit Profile
+                </h2>
+
+            </div>
+
+
+
+            <!-- Cover Photo -->
+
+            <div class="profile-edit-section">
+
+                <h3>
+                    Cover Photo
+                </h3>
+
+                <div class="profile-edit-cover">
+
+                    <img
+                        id="edit-cover-preview"
+                        src="./images/coverphoto.png"
+                        alt="Cover preview"
+                    >
+
+                    <label
+                        for="cover-upload"
+                        class="change-image-button"
+                    >
+                        Change Cover
+                    </label>
+
+                    <input
+                        type="file"
+                        id="cover-upload"
+                        accept="image/*"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Profile Photo -->
+
+            <div class="profile-edit-section">
+
+                <h3>
+                    Profile Photo
+                </h3>
+
+                <div class="profile-edit-picture">
+
+                    <img
+                        id="edit-profile-preview"
+                        src="./images/profilepicture.png"
+                        alt="Profile preview"
+                    >
+
+                    <label
+                        for="profile-upload"
+                        class="change-image-button"
+                    >
+                        Change Photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="profile-upload"
+                        accept="image/*"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Display Name -->
+
+            <div class="profile-input-group">
+
+                <label for="profile-name-input">
+                    Display Name
+                </label>
+
+                <input
+                    type="text"
+                    id="profile-name-input"
+                    value="AnimeArchive User"
+                    maxlength="40"
+                >
+
+            </div>
+
+
+
+            <!-- Username -->
+
+            <div class="profile-input-group">
+
+                <label for="profile-username-input">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="profile-username-input"
+                    value="animearchive"
+                    maxlength="20"
+                >
+
+            </div>
+
+
+
+            <!-- Bio -->
+
+            <div class="profile-input-group">
+
+                <label for="profile-bio-input">
+                    Bio
+                </label>
+
+                <textarea
+                    id="profile-bio-input"
+                    maxlength="160"
+                >Just someone who loves anime, good stories, and keeping track of every anime I've watched.</textarea>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 PERSONAL INFORMATION
+                 ======================================== -->
+
+            <div class="profile-edit-section">
+
+                <div class="profile-section-header">
+
+                    <p>
+                        Your details
+                    </p>
+
+                    <h2>
+                        Personal Information
+                    </h2>
+
+                </div>
+
+
+                <!-- Name -->
+
+                <div class="profile-input-group">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+
+                <!-- Email -->
+
+                <div class="profile-input-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+
+                <!-- Subject -->
+
+                <div class="profile-input-group">
+
+                    <label for="subject">
+                        Subject
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        placeholder="Enter the subject"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- Actions -->
+
+            <div class="profile-modal-actions">
+
+                <button
+                    class="cancel-profile-button"
+                    id="cancel-profile-button"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    class="save-profile-button"
+                    id="save-profile-button"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>

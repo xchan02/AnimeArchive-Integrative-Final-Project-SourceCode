@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Watchlist - AnimeArchive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <!-- ========================================
+         NAVIGATION BAR
+         ======================================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                AnimeArchive
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="anime.html">
+                    My Anime
+                </a>
+
+                <a href="watchlist.html" class="active">
+                    Watchlist
+                </a>
+
+                <a href="profile.html">
+                    Profile
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ========================================
+         MAIN CONTENT
+         ======================================== -->
+
+    <main class="watchlist-page">
+
+
+        <!-- Watchlist Header -->
+
+        <section class="watchlist-header">
+
+            <p class="watchlist-label section-label">
+                Your watchlist
+            </p>
+
+            <h1>
+                Watchlist
+            </h1>
+
+            <p class="watchlist-subtitle">
+                Anime you want to watch next.
+            </p>
+
+        </section>
+
+
+
+        <!-- ========================================
+             SEARCH AND SORT
+             ======================================== -->
+
+        <section class="watchlist-controls">
+
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <span>
+                    🔍
+                </span>
+
+                <input
+                    type="text"
+                    id="watchlist-search"
+                    placeholder="Search your watchlist..."
+                >
+
+            </div>
+
+
+
+            <!-- Sort -->
+
+            <div class="sort-container">
+
+                <button
+                    class="sort-button"
+                    id="watchlist-sort-button"
+                >
+                    Sort ▾
+                </button>
+
+
+                <div
+                    class="sort-menu"
+                    id="watchlist-sort-menu"
+                >
+
+                    <button data-sort="recent">
+                        Recently Added
+                    </button>
+
+                    <button data-sort="az">
+                        Title A–Z
+                    </button>
+
+                    <button data-sort="za">
+                        Title Z–A
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             WATCHLIST COLLECTION
+             ======================================== -->
+
+        <section class="watchlist-collection">
+
+
+            <div class="collection-heading">
+
+                <p>
+                    To watch
+                </p>
+
+                <span id="watchlist-count">
+                    0 Anime
+                </span>
+
+            </div>
+
+
+
+            <!-- Anime Cards -->
+
+            <div
+                class="watchlist-grid"
+                id="watchlist-grid"
+            >
+
+
+                <!--
+                    Watchlist anime cards
+                    will be added here with JavaScript.
+                -->
+
+
+            </div>
+
+
+
+            <!-- ========================================
+                 EMPTY WATCHLIST
+                 ======================================== -->
+
+            <div
+                class="watchlist-empty"
+                id="watchlist-empty"
+            >
+
+                <div class="empty-icon">
+                    ＋
+                </div>
+
+                <h2>
+                    Your watchlist is empty
+                </h2>
+
+                <p>
+                    Anime you want to watch will appear here.
+                </p>
+
+                <a
+                    href="anime.html"
+                    class="empty-button"
+                >
+                    Browse My Anime
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

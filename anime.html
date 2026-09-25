@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Anime - AnimeArchive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ 
+    <!-- ========================================
+         NAVIGATION
+         ======================================== -->
+ 
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html">
+                AnimeArchive
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">
+                Home
+            </a>
+            <a href="anime.html" class="active">
+                My Anime
+            </a>
+            <a href="watchlist.html">
+                Watchlist
+            </a>
+            <a href="profile.html">
+                Profile
+            </a>
+        </div>
+    </nav>
+ 
+    <!-- ========================================
+         MY ANIME PAGE
+         ======================================== -->
+ 
+    <main class="library-page">
+        <div class="library-header">
+            <div>
+                <p class="section-label">
+                    My collection
+                </p>
+                <h1>
+                    My Anime
+                </h1>
+                <p>
+                    My personal anime archive.
+                </p>
+            </div>
+        </div>
+ 
+        <!-- ========================================
+             SEARCH AND SORT
+             ======================================== -->
+ 
+        <div class="library-controls">
+            <div class="search-box">
+                <span>
+                    🔍
+                </span>
+                <input
+                    type="text"
+                    id="anime-search"
+                    placeholder="Search anime..."
+                >
+            </div>
+            <div class="sort-container">
+                <button
+                    id="sort-button"
+                    class="sort-button"
+                >
+                    Sort ▾
+                </button>
+                
+                <div
+                    id="sort-menu"
+                    class="sort-menu"
+                >
+                    <button data-sort="recent">
+                        Recently Added
+                    </button>
+                    <button data-sort="az">
+                        Title A-Z
+                    </button>
+                    <button data-sort="za">
+                        Title Z-A
+                    </button>
+                </div>
+            </div>
+        </div>
+ 
+        <!-- ========================================
+             ANIME FILTERS
+             ======================================== -->
+ 
+        <div class="library-filters">
+            <button
+                class="library-filter active"
+            >
+                All
+            </button>
+            <button
+                class="library-filter"
+            >
+                Currently Watching
+            </button>
+            <button
+                class="library-filter"
+            >
+                Completed
+            </button>
+            <button
+                class="library-filter"
+            >
+                On Hold
+            </button>
+            <button
+                class="library-filter"
+            >
+                Dropped
+            </button>
+        </div>
+ 
+        <!-- ========================================
+             COLLECTION HEADING
+             ======================================== -->
+ 
+        <div class="collection-heading">
+            <h2>
+                My Collection
+            </h2>
+            <span id="anime-count">
+                4 Anime
+            </span>
+        </div>
+ 
+        <!-- ========================================
+             ANIME GRID
+             ======================================== -->
+ 
+        <div class="anime-grid">
+ 
+            <!-- ========================================
+                 FRIEREN
+                 ======================================== -->
+ 
+            <article
+                class="library-card"
+                data-anime="frieren"
+            >
+                <div class="poster-container">
+                    <img
+                        src="./images/frieren-poster.png"
+                        alt="Frieren: Beyond Journey's End"
+                    >
+                    <div class="poster-overlay">
+                        <span class="card-status">
+                            Completed
+                        </span>
+                        <button
+                            class="details-button"
+                            data-anime="frieren"
+                        >
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="library-card-info">
+                    <h2>
+                        Frieren: Beyond Journey's End
+                    </h2>
+                    <div class="card-meta">
+                        <span>
+                            ⭐ 9.8 / 10
+                        </span>
+                        <span>
+                            28 Episodes
+                        </span>
+                    </div>
+                    <p>
+                        Adventure • Drama • Fantasy
+                    </p>
+                </div>
+            </article>
+ 
+            <!-- ========================================
+                 SOLO LEVELING
+                 ======================================== -->
+ 
+            <article
+                class="library-card"
+                data-anime="solo-leveling"
+            >
+                <div class="poster-container">
+                    <img
+                        src="./images/sololeveling-poster.png"
+                        alt="Solo Leveling"
+                    >
+                    <div class="poster-overlay">
+                        <span class="card-status">
+                            Completed
+                        </span>
+                        <button
+                            class="details-button"
+                            data-anime="solo-leveling"
+                        >
+                            View Details
+                        </button>
+                    </div>
+                </div>
+ 
+                <div class="library-card-info">
+                    <h2>
+                        Solo Leveling
+                    </h2>
+                    <div class="card-meta">
+                        <span>
+                            ⭐ 10 / 10
+                        </span>
+                        <span>
+                            25 Episodes
+                        </span>
+                    </div>
+                    <p>
+                        Action • Adventure • Fantasy
+                    </p>
+                </div>
+            </article>
+ 
+            <!-- ========================================
+                 THE APOTHECARY DIARIES
+                 ======================================== -->
+ 
+            <article
+                class="library-card"
+                data-anime="apothecary-diaries"
+            >
+                <div class="poster-container">
+                    <img
+                        src="./images/apodiaries-poster.png"
+                        alt="The Apothecary Diaries"
+                    >
+                    <div class="poster-overlay">
+                        <span class="card-status">
+                            Planned
+                        </span>
+                        <button
+                            class="details-button"
+                            data-anime="apothecary-diaries"
+                        >
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                <div class="library-card-info">
+                    <h2>
+                        The Apothecary Diaries
+                    </h2>
+                    <div class="card-meta">
+                        <span>
+                            Not Started
+                        </span>
+                        <span>
+                            48 Episodes
+                        </span>
+                    </div>
+                    <p>
+                        Drama • Mystery • Historical
+                    </p>
+                </div>
+            </article>
+ 
+            <!-- ========================================
+                 ATTACK ON TITAN
+                 ======================================== -->
+ 
+            <article
+                class="library-card"
+                data-anime="attack-on-titan"
+            >
+                <div class="poster-container">
+                    <img
+                        src="./images/attackontitan-poster.png"
+                        alt="Attack on Titan"
+                    >
+                    <div class="poster-overlay">
+                        <span class="card-status">
+                            Planned
+                        </span>
+                        <button
+                            class="details-button"
+                            data-anime="attack-on-titan"
+                        >
+                            View Details
+                        </button>
+                    </div>
+                </div>
+ 
+                <div class="library-card-info">
+                    <h2>
+                        Attack on Titan
+                    </h2>
+                    <div class="card-meta">
+                        <span>
+                            Not Started
+                        </span>
+                        <span>
+                            89 Episodes
+                        </span>
+                    </div>
+                    <p>
+                        Action • Drama • Fantasy
+                    </p>
+                </div>
+            </article>
+        </div>
+    </main>
+ 
+    <!-- ========================================
+         ANIME DETAIL MODAL
+         ======================================== -->
+ 
+    <div
+        id="anime-modal"
+        class="modal"
+    >
+        <div class="modal-content">
+            <button
+                id="modal-close"
+                class="modal-close"
+            >
+                ×
+            </button>
+            <div class="modal-poster-container">
+                <img
+                    id="modal-poster"
+                    src=""
+                    alt=""
+                >
+            </div>
+            <div class="modal-info">
+                <span
+                    id="modal-label"
+                    class="modal-label"
+                >
+                </span>
+                <h2 id="modal-title">
+                </h2>
+                <div
+                    id="modal-meta"
+                    class="modal-meta"
+                >
+                </div>
+                <p id="modal-date">
+                </p>
+                <p
+                    id="modal-synopsis"
+                    class="modal-synopsis"
+                >
+                </p>
+ 
+                <!-- ========================================
+                     PERSONAL THOUGHTS
+                     ======================================== -->
+ 
+                <div class="thoughts-section">
+                    <div class="thoughts-header">
+                        <h3>
+                            My Thoughts
+                        </h3>
+                        <button
+                            id="edit-thoughts"
+                            class="edit-thoughts"
+                        >
+                            ✏ Edit
+                        </button>
+                    </div>
+                    <p id="modal-thoughts">
+                    </p>
+                    <textarea
+                        id="thoughts-input"
+                        class="thoughts-input"
+                        placeholder="Write your thoughts..."
+                    ></textarea>
+                    <div
+                        id="thoughts-actions"
+                        class="thoughts-actions"
+                    >
+                        <button
+                            id="save-thoughts"
+                        >
+                            Save
+                        </button>
+                        <button
+                            id="cancel-thoughts"
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+ 
+                <!-- ========================================
+                     FAVORITE CHARACTERS
+                     ======================================== -->
+ 
+                <div class="characters-section">
+                    <h3>
+                        Favorite Characters
+                    </h3>
+                    <div
+                        id="favorite-characters"
+                        class="favorite-characters"
+                    >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- ========================================
+         CHARACTER THOUGHTS MODAL
+         ======================================== -->
+    <div
+        id="character-thoughts-modal"
+        class="modal"
+    >
+        <div class="character-modal-content">
+            <button
+                id="character-modal-close"
+                class="modal-close"
+            >
+                ×
+            </button>
+            <img
+                id="character-edit-image"
+                src=""
+                alt=""
+            >
+            <h2 id="character-edit-name">
+            </h2>
+            <textarea
+                id="character-thoughts-input"
+                placeholder="Write your thoughts about this character..."
+            ></textarea>
+
+            <div class="character-thoughts-actions">
+                <button
+                    id="save-character-thoughts"
+                >
+                    Save
+                </button>
+                <button
+                    id="cancel-character-thoughts"
+                >
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+ 
+    <script src="js/script.js"></script>
+</body>
+</html>
